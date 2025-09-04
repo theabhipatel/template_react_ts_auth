@@ -10,6 +10,11 @@
     "preview": "vite preview",
     "prepare": "husky"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.12",
     "react": "^19.1.1",
