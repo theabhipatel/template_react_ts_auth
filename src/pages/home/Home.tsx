@@ -1,4 +1,5 @@
 import Navigator from "@/components/Navigator";
+import DummyHome from "./components/DummyHome";
 
 const Home = () => {
   return (
@@ -10,7 +11,7 @@ const Home = () => {
       <h1 className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-center text-6xl font-bold text-transparent">
         TAP React Template
       </h1>
-
+      <DummyHome />
       <Navigator />
     </div>
   );
