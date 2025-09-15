@@ -1,7 +1,11 @@
 {
-  "name": "template-react-ts",
+  "name": "template_react_ts_auth",
+  "description": "This is TheAbhiPatel React template with typescript, tailwind css, shadcn ui and complete authentication.",
+  "author": {
+    "name": "TheAbhiPatel"
+  },
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
