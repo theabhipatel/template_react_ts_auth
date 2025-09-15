@@ -75,7 +75,7 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"div">) 
           </form>
           <div className="bg-muted relative hidden md:block">
             <img
-              src="/placeholder.svg"
+              src="https://img.freepik.com/premium-vector/desktop-mobile-illustration-login-page-data-analysis_559664-335.jpg?ga=GA1.1.635718530.1748263030&semt=ais_incoming&w=740&q=80"
               alt="Image"
               className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
             />
