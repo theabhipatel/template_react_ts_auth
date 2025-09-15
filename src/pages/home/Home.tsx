@@ -1,5 +1,6 @@
 import Navigator from "@/components/Navigator";
 import DummyHome from "./components/DummyHome";
+import { Button } from "@/components/ui/button";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
         TAP React Template
       </h1>
       <DummyHome />
+      <Button>Get Started</Button>
       <Navigator />
     </div>
   );
