@@ -2,7 +2,7 @@ import AppLayout from "@/layouts/AppLayout";
 import Home from "@/pages/home/Home";
 import NotFound from "@/pages/notFound/NotFound";
 import Profile from "@/pages/profile/Profile";
-import Login from "@/pages/signin/Login";
+import Login from "@/pages/login/Login";
 import Signup from "@/pages/signup/Signup";
 import type { ReactElement } from "react";
 
