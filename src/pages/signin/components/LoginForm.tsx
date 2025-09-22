@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router";
 
-const SignupForm = () => {
+const LoginForm = () => {
   return (
     <div className="flex flex-col gap-6">
       <Card className="overflow-hidden p-0">
@@ -12,29 +12,24 @@ const SignupForm = () => {
           <form className="p-6 md:p-8">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
-                <h1 className="text-2xl font-bold">Welcome</h1>
-                <p className="text-muted-foreground text-balance">Signup to create your account</p>
-              </div>
-              <div className="grid gap-3">
-                <Label htmlFor="firstName">First Name</Label>
-                <Input id="firstName" type="text" placeholder="Abhi" required />
-              </div>
-              <div className="grid gap-3">
-                <Label htmlFor="lastName">Last Name</Label>
-                <Input id="lastName" type="text" placeholder="Patel" required />
+                <h1 className="text-2xl font-bold">Welcome back</h1>
+                <p className="text-muted-foreground text-balance">Login to your Account</p>
               </div>
               <div className="grid gap-3">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="abhi@gmail.com" required />
+                <Input id="email" type="email" placeholder="m@example.com" required />
               </div>
               <div className="grid gap-3">
                 <div className="flex items-center">
                   <Label htmlFor="password">Password</Label>
+                  <a href="#" className="ml-auto text-sm underline-offset-2 hover:underline">
+                    Forgot your password?
+                  </a>
                 </div>
                 <Input id="password" type="password" required />
               </div>
               <Button type="submit" className="w-full">
-                Signup
+                Login
               </Button>
               <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
                 <span className="bg-card text-muted-foreground relative z-10 px-2">
@@ -49,7 +44,7 @@ const SignupForm = () => {
                       fill="currentColor"
                     />
                   </svg>
-                  <span className="sr-only">Signup with Apple</span>
+                  <span className="sr-only">Login with Apple</span>
                 </Button>
                 <Button variant="outline" type="button" className="w-full">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -58,7 +53,7 @@ const SignupForm = () => {
                       fill="currentColor"
                     />
                   </svg>
-                  <span className="sr-only">Signup with Google</span>
+                  <span className="sr-only">Login with Google</span>
                 </Button>
                 <Button variant="outline" type="button" className="w-full">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -67,13 +62,13 @@ const SignupForm = () => {
                       fill="currentColor"
                     />
                   </svg>
-                  <span className="sr-only">Signup with Meta</span>
+                  <span className="sr-only">Login with Meta</span>
                 </Button>
               </div>
               <div className="text-center text-sm">
-                Already have an account?{" "}
-                <Link to={"/login"} className="underline underline-offset-4">
-                  Login
+                Don&apos;t have an account?{" "}
+                <Link to={"/signup"} className="underline underline-offset-4">
+                  Sign up
                 </Link>
               </div>
             </div>
@@ -88,13 +83,11 @@ const SignupForm = () => {
         </CardContent>
       </Card>
       <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
-        Created By{" "}
-        <a href="/theabhipatel.com" target="_blank">
-          TheAbhiPatel
-        </a>
+        By clicking continue, you agree to our <a href="#">Terms of Service</a> and{" "}
+        <a href="#">Privacy Policy</a>.
       </div>
     </div>
   );
 };
 
-export default SignupForm;
+export default LoginForm;
