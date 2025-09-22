@@ -3,7 +3,7 @@ import Home from "@/pages/home/Home";
 import NotFound from "@/pages/notFound/NotFound";
 import Profile from "@/pages/profile/Profile";
 import Login from "@/pages/signin/Login";
-import Singup from "@/pages/signup/Singup";
+import Signup from "@/pages/signup/Signup";
 import type { ReactElement } from "react";
 
 export interface IRouteConfig {
@@ -34,7 +34,7 @@ export const routes: IRouteConfig[] = [
   },
   {
     path: "/signup",
-    element: <Singup />,
+    element: <Signup />,
   },
   {
     path: "*",
