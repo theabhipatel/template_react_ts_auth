@@ -3,6 +3,7 @@ import Home from "@/pages/home/Home";
 import NotFound from "@/pages/notFound/NotFound";
 import Profile from "@/pages/profile/Profile";
 import Singin from "@/pages/signin/Singin";
+import Singup from "@/pages/signup/Singup";
 import type { ReactElement } from "react";
 
 export interface IRouteConfig {
@@ -30,6 +31,10 @@ export const routes: IRouteConfig[] = [
   {
     path: "/signin",
     element: <Singin />,
+  },
+  {
+    path: "/signup",
+    element: <Singup />,
   },
   {
     path: "*",
