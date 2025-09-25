@@ -1,5 +1,8 @@
 import { Routes, Route } from "react-router";
 import { routes, type IRouteConfig } from "./routes";
+import { useDispatch } from "react-redux";
+import { clearAuth } from "@/store/features/auth/authSlice";
+import { initializeResInterceptor } from "@/utils/axiosClient";
 
 const renderRoutes = (routes: IRouteConfig[]): React.ReactNode =>
   routes.map(({ path, element, index, children }, key) => {
@@ -14,6 +17,15 @@ const renderRoutes = (routes: IRouteConfig[]): React.ReactNode =>
   });
 
 const AppRouter = () => {
+  const dispatch = useDispatch();
+
+  const handleClearAuthUser = () => {
+    dispatch(clearAuth());
+  };
+
+  /** ---> initializing axios interceptor. */
+  initializeResInterceptor(handleClearAuthUser);
+
   return <Routes>{renderRoutes(routes)}</Routes>;
 };
 
