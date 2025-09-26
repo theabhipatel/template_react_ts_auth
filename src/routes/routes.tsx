@@ -5,6 +5,7 @@ import Profile from "@/pages/profile/Profile";
 import Login from "@/pages/login/Login";
 import Signup from "@/pages/signup/Signup";
 import type { ReactElement } from "react";
+import PrivateRoutes from "@/hoc/PrivateRoutes";
 
 export interface IRouteConfig {
   path?: string;
@@ -16,7 +17,11 @@ export interface IRouteConfig {
 export const routes: IRouteConfig[] = [
   {
     path: "/",
-    element: <AppLayout />,
+    element: (
+      <PrivateRoutes>
+        <AppLayout />
+      </PrivateRoutes>
+    ), // [🟨TODO]: Have to fix this issue
     children: [
       {
         index: true,
