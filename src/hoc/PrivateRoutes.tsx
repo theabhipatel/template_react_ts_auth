@@ -1,7 +1,7 @@
 import { useAppSelector } from "@/store/hooks";
 import { Navigate, Outlet } from "react-router";
 
-const PrivateRoute = () => {
+const PrivateRoutes = () => {
   const user = useAppSelector((state) => state.auth.user);
   const currentPath = window.location.pathname + window.location.search;
   const redirectTo = encodeURIComponent(currentPath);
@@ -9,4 +9,4 @@ const PrivateRoute = () => {
   return user ? <Outlet /> : <Navigate to={`/login?redirect=${redirectTo}`} />;
 };
 
-export default PrivateRoute;
+export default PrivateRoutes;
