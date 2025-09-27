@@ -17,19 +17,20 @@ export interface IRouteConfig {
 export const routes: IRouteConfig[] = [
   {
     path: "/",
-    element: (
-      <PrivateRoutes>
-        <AppLayout />
-      </PrivateRoutes>
-    ), // [🟨TODO]: Have to fix this issue
+    element: <PrivateRoutes />,
     children: [
       {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: "profile",
-        element: <Profile />,
+        element: <AppLayout />,
+        children: [
+          {
+            index: true,
+            element: <Home />,
+          },
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+        ],
       },
     ],
   },
