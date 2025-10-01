@@ -3,11 +3,35 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link, useNavigate } from "react-router";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+interface IFormData {
+  email: string;
+  password: string;
+}
+
+const formSchema = yup
+  .object({
+    email: yup.string().email("Must be a valid email").required("Email is a required field"),
+    password: yup.string().required("Password is a required field"),
+  })
+  .required();
 
 const LoginForm = () => {
   const navigate = useNavigate();
 
-  const handleLogin = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormData>({
+    resolver: yupResolver(formSchema),
+  });
+
+  const onSubmit = (data: IFormData) => {
+    console.log("🚀🚀🚀", data);
     navigate("/");
   };
 
@@ -15,26 +39,43 @@ const LoginForm = () => {
     <div className="flex flex-col gap-6">
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2">
-          <form className="p-6 md:p-8">
+          <form onSubmit={handleSubmit(onSubmit)} className="p-6 md:p-8">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-bold">Welcome back</h1>
                 <p className="text-muted-foreground text-balance">Login to your Account</p>
               </div>
-              <div className="grid gap-3">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="m@example.com" required />
-              </div>
-              <div className="grid gap-3">
-                <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
-                  <a href="#" className="ml-auto text-sm underline-offset-2 hover:underline">
-                    Forgot your password?
-                  </a>
+              <div className="flex flex-col gap-3">
+                <div className="grid gap-3">
+                  <Label htmlFor="email" className="gap-0">
+                    Email <span className="text-red-500">*</span>
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="abhi@gmail.com"
+                    {...register("email")}
+                  />
+                  <span className="ml-2 text-xs leading-0 text-red-500">
+                    {errors?.email?.message}
+                  </span>
                 </div>
-                <Input id="password" type="password" required />
+                <div className="grid gap-3">
+                  <div className="flex items-center">
+                    <Label htmlFor="password" className="gap-0">
+                      Password <span className="text-red-500">*</span>
+                    </Label>
+                    <a href="#" className="ml-auto text-sm underline-offset-2 hover:underline">
+                      Forgot your password?
+                    </a>
+                  </div>
+                  <Input id="password" type="password" {...register("password")} />
+                  <span className="ml-2 text-xs leading-0 text-red-500">
+                    {errors?.password?.message}
+                  </span>
+                </div>
               </div>
-              <Button onClick={handleLogin} type="submit" className="w-full">
+              <Button type="submit" className="w-full">
                 Login
               </Button>
               <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
