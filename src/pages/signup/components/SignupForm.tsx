@@ -38,8 +38,6 @@ const SignupForm = () => {
     console.log("🚀🚀🚀", data);
   };
 
-  /** ---> [🟨 TODO 🟨] : Have to fix y gap issue between input fields */
-
   return (
     <div className="flex flex-col gap-6">
       <Card className="overflow-hidden p-0">
@@ -50,48 +48,50 @@ const SignupForm = () => {
                 <h1 className="text-2xl font-bold">Welcome</h1>
                 <p className="text-muted-foreground text-balance">Signup to create your account</p>
               </div>
-              <div className="grid gap-3">
-                <Label htmlFor="firstName" className="gap-0">
-                  First Name <span className="text-red-500">*</span>
-                </Label>
-                <Input id="firstName" type="text" placeholder="Abhi" {...register("firstName")} />
-                <span className="ml-2 text-xs leading-0 text-red-500">
-                  {errors?.firstName?.message}
-                </span>
-              </div>
-              <div className="grid gap-3">
-                <Label htmlFor="lastName" className="gap-0">
-                  Last Name <span className="text-red-500">*</span>
-                </Label>
-                <Input id="lastName" type="text" placeholder="Patel" {...register("lastName")} />
-                <span className="ml-2 text-xs leading-0 text-red-500">
-                  {errors?.lastName?.message}
-                </span>
-              </div>
-              <div className="grid gap-3">
-                <Label htmlFor="email" className="gap-0">
-                  Email <span className="text-red-500">*</span>
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="abhi@gmail.com"
-                  {...register("email")}
-                />
-                <span className="ml-2 text-xs leading-0 text-red-500">
-                  {errors?.email?.message}
-                </span>
-              </div>
-              <div className="grid gap-3">
-                <div className="flex items-center">
-                  <Label htmlFor="password" className="gap-0">
-                    Password <span className="text-red-500">*</span>
+              <div className="flex flex-col gap-3">
+                <div className="grid gap-3">
+                  <Label htmlFor="firstName" className="gap-0">
+                    First Name <span className="text-red-500">*</span>
                   </Label>
+                  <Input id="firstName" type="text" placeholder="Abhi" {...register("firstName")} />
+                  <span className="ml-2 text-xs leading-0 text-red-500">
+                    {errors?.firstName?.message}
+                  </span>
                 </div>
-                <Input id="password" type="password" {...register("password")} />
-                <span className="ml-2 text-xs leading-0 text-red-500">
-                  {errors?.password?.message}
-                </span>
+                <div className="grid gap-3">
+                  <Label htmlFor="lastName" className="gap-0">
+                    Last Name <span className="text-red-500">*</span>
+                  </Label>
+                  <Input id="lastName" type="text" placeholder="Patel" {...register("lastName")} />
+                  <span className="ml-2 text-xs leading-0 text-red-500">
+                    {errors?.lastName?.message}
+                  </span>
+                </div>
+                <div className="grid gap-3">
+                  <Label htmlFor="email" className="gap-0">
+                    Email <span className="text-red-500">*</span>
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="abhi@gmail.com"
+                    {...register("email")}
+                  />
+                  <span className="ml-2 text-xs leading-0 text-red-500">
+                    {errors?.email?.message}
+                  </span>
+                </div>
+                <div className="grid gap-3">
+                  <div className="flex items-center">
+                    <Label htmlFor="password" className="gap-0">
+                      Password <span className="text-red-500">*</span>
+                    </Label>
+                  </div>
+                  <Input id="password" type="password" {...register("password")} />
+                  <span className="ml-2 text-xs leading-0 text-red-500">
+                    {errors?.password?.message}
+                  </span>
+                </div>
               </div>
               <Button type="submit" className="w-full">
                 Signup
