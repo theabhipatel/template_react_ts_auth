@@ -32,6 +32,7 @@ const LoginForm = () => {
 
   const onSubmit = (data: IFormData) => {
     console.log("🚀🚀🚀", data);
+    // [TODO]: Have to implement api with axios client
     navigate("/");
   };
 
