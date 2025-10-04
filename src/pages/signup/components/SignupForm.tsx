@@ -36,6 +36,7 @@ const SignupForm = () => {
 
   const onSubmit = (data: IFormData) => {
     console.log("🚀🚀🚀", data);
+    // [TODO] : Have to integrate api
   };
 
   return (
