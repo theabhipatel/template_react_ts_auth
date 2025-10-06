@@ -26,6 +26,7 @@ const AppRouter = () => {
   /** ---> initializing axios interceptor. */
   initializeResInterceptor(handleClearAuthUser);
 
+  // [TODO]: Have to put Private route hoc to protect authenticated routes.
   return <Routes>{renderRoutes(routes)}</Routes>;
 };
 
