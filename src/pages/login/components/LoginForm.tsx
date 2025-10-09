@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useAppDispatch } from "@/store/hooks";
+import { login } from "@/store/features/auth/authApi"; // [🟨TODO] Have to give a proper name to these functions
 
 interface IFormData {
   email: string;
@@ -21,6 +23,7 @@ const formSchema = yup
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const {
     register,
@@ -30,10 +33,13 @@ const LoginForm = () => {
     resolver: yupResolver(formSchema),
   });
 
-  const onSubmit = (data: IFormData) => {
-    console.log("🚀🚀🚀", data);
+  const onSubmit = async (data: IFormData) => {
+    // console.log("🚀🚀🚀", data);
+    const result = await dispatch(login(data));
+    if (login.fulfilled.match(result)) {
+      navigate("/");
+    }
     // [TODO]: Have to implement api with axios client and using redux async thunk.
-    navigate("/");
   };
 
   return (
