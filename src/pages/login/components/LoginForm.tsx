@@ -39,7 +39,6 @@ const LoginForm = () => {
     if (login.fulfilled.match(result)) {
       navigate("/");
     }
-    // [TODO]: Have to implement api with axios client and using redux async thunk.
   };
 
   return (
