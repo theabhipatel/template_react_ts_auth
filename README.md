@@ -1,69 +1,167 @@
-# React + TypeScript + Vite
+# 🧩 React TypeScript Auth Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A pre-configured **React.js + TypeScript** template to help you start new projects faster.  
+This setup includes **authentication**, **Redux Toolkit**, **Tailwind CSS**, **Shadcn UI**, **React Router**, **Husky**, **Prettier**, **absolute paths**, and more — everything ready out of the box.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🔐 Authentication System
 
-## Expanding the ESLint configuration
+- Login & Signup pages
+- Protected routes
+- JWT-based authentication (frontend-ready)
+- Axios client with interceptors
+- Auth Redux slice
+- Auto redirect when unauthorized
+- User profile page
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🎨 UI & Styling
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Tailwind CSS configured
+- Shadcn UI pre-installed (`components.json` included)
+- Responsive components & pages
+- Global styles in `index.css`
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 🛠️ Development Tools
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- TypeScript
+- ESLint configured
+- Prettier auto formatting
+- Husky pre-commit hook (`lint-staged` ready)
+- Absolute import paths (`@/components/*`, `@/store/*`, etc.)
+- Vite bundler
+
+### 🧭 Routing
+
+- React Router v6
+- PrivateRoute protection
+- Nested routes setup
+- 404 Page
+
+### 🧱 State Management
+
+- Redux Toolkit (auth + user APIs ready)
+- Typed hooks
+
+## 📂 Project Structure
+
+```
+src/
+ ├── components/           # Reusable UI components
+ ├── layouts/              # Layout wrappers
+ ├── pages/                # Login, Signup, Home, Profile, NotFound
+ ├── routes/               # App routes + protected routes
+ ├── store/                # Redux store + slices + APIs
+ ├── utils/                # Axios client + helpers
+ ├── types/                # Type definitions
+ └── App.tsx               # Root application
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚡ Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 1. Clone the Template
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/theabhipatel/template_react_ts_auth
+cd template_react_ts_auth
 ```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Start Development Server
+
+```bash
+npm run dev
+```
+
+### 4. Build for Production
+
+```bash
+npm run build
+```
+
+## 🔧 Environment Variables
+
+Create a `.env` file:
+
+```
+VITE_BASE_URL=http://localhost:5000
+```
+
+### Backend endpoints required:
+
+- POST `/auth/login`
+- POST `/auth/signup`
+- GET `/users/me`
+
+## 🔐 Authentication Flow (Frontend)
+
+1. User logs in → API returns token
+2. Token stored in Redux + localStorage
+3. Axios interceptor attaches token
+4. Unauthorized auto-logout
+5. Protected pages redirect to `/login`
+
+## 🎨 UI Components Using Shadcn
+
+Generate new components:
+
+```bash
+npx shadcn-ui add button card input form
+```
+
+## 🧹 Formatting & Linting
+
+Runs automatically via Husky.
+
+Manual commands:
+
+```bash
+npm run lint
+npm run format
+```
+
+## 📦 Absolute Imports
+
+Already configured:
+
+```
+@/components/*
+@/store/*
+@/pages/*
+@/utils/*
+```
+
+Example:
+
+```ts
+import LoginForm from "@/pages/login/components/LoginForm";
+```
+
+## 🛠️ Tech Stack
+
+- React.js + TypeScript
+- Vite
+- Tailwind CSS
+- Shadcn UI
+- React Router v6
+- Redux Toolkit
+- Axios
+- Prettier + ESLint + Husky
+- Absolute Paths
+
+## 🏁 Ready to Use
+
+This template saves hours when starting a new React project.
+
+## ⭐ Contribute
+
+Feel free to submit a PR.
+
+## 📄 License
+
+MIT License
