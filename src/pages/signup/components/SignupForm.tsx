@@ -150,7 +150,7 @@ const SignupForm = () => {
       </Card>
       <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
         Created By{" "}
-        <a href="/theabhipatel.com" target="_blank">
+        <a href="https://theabhipatel.com" target="_blank">
           TheAbhiPatel
         </a>
       </div>
